@@ -23,7 +23,8 @@ const reducer = (state=initialState,action)=>{
 const store =createStore(reducer); 
 console.log('Initial state',store.getState());
 
-const unsubscribe =store.subscribe(()=>console.log('update state',store.getState())) 
+const unsubscribe =store.subscribe(()=>console.log('update state',store.getState()))
+//run when the state is updated
 store.dispatch({
     type:CAKE_ORDERED,
     quantity:1,
@@ -31,5 +32,7 @@ store.dispatch({
 store.dispatch(orderCake())
 
 unsubscribe();
-console.log(store.getState());
+// console.log(store.getState());
 store.dispatch(orderCake())
+//this will execute but subscribe function will not be executed
+// console.log(store.getState())
